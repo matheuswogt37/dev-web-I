@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('../img/Doma_Umaru_Java_Script_The_Good_Parts.png');
+    background-size: 50vh;
+    background-repeat: repeat;
+}
+
+div#grayBorderContainer {
+    background-color: rgba(128, 128, 128, 0.9);
+    border-radius: 0.5rem;
+    width: 50%;
+    margin: 5rem auto;
+    padding: 0.5rem 0;
+    text-align: center;
+}
+
+button#button {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    background-color: cadetblue;
+    border-radius: 0.5rem;
+    border-style: none;
+    color: white;
+}
+
+button#button:hover {
+    cursor: pointer;
+}
+
+div#divPost {
+    padding: 1rem;
+}
+
+div#divPost h4 {
+    color: lightgreen;
+}
+
+div#divPost p {
+    text-align: left;
+    margin-bottom: 1rem;
+}

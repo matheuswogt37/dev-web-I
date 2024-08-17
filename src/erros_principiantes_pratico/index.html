@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="css/style.css" />
+        <title>My error page</title>
+        <script type="module" src="js/main.js" defer></script>
+        <script type="module" defer>
+            import { mensagem, posts } from "./js/main.js";
+
+            document.getElementById("tittle").innerHTML = mensagem;
+
+            // var button = document.getElementById("button");
+            document
+                .getElementById("button")
+                .addEventListener("click", buttonPost, false);
+            async function buttonPost() {
+                // make the button disapear
+                button.style.display = "none";
+
+                // create the posts
+                const divPost = document.createElement("div");
+                divPost.setAttribute("id", "divPost");
+                
+                const postTittle = document.createElement("h2");
+                postTittle.appendChild(document.createTextNode("Posts"));
+                divPost.appendChild(postTittle);
+
+                const data = await posts();
+                data.forEach(post => {
+                    const h4 = document.createElement("h4");
+                    h4.appendChild(document.createTextNode(post.title));
+                    divPost.appendChild(h4);
+                    const p = document.createElement("p");
+                    p.appendChild(document.createTextNode(post.body));
+                    divPost.appendChild(p);
+                })
+                
+                document.getElementById("button").parentNode.insertBefore(divPost, document.getElementById("button").nextSibling);
+            }
+        </script>
+    </head>
+    <body>
+        <div id="grayBorderContainer">
+            <h1 id="tittle"></h1>
+
+            <button id="button">
+                <b>click me for posts</b>
+            </button>
+        </div>
+    </body>
+</html>
